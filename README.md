@@ -1,7 +1,7 @@
 # Personal Budget Tracker
 
-# Student: Dhriti Pandya
-# Course: Software Engineering
+Student: Dhriti Pandya
+Course: Software Engineering
 
 # Project Description
 

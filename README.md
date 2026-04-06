@@ -2,7 +2,7 @@
 
 Student: Dhriti Pandya
 Course: Software Engineering
-
+ 
 # Project Description
 
 This is a web-based personal budget tracker that allows users to record income and expenses, view a financial summary, and track transactions. The application is designed to help users manage their personal finances easily and efficiently.

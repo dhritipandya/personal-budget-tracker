@@ -13,17 +13,17 @@
 
 <div class="card income">
 <h3>Total Income</h3>
-<p id="income">$0</p>
+<p id="income">$0.00</p>
 </div>
 
 <div class="card expense">
 <h3>Total Expenses</h3>
-<p id="expense">$0</p>
+<p id="expense">$0.00</p>
 </div>
 
 <div class="card balance">
 <h3>Net Balance</h3>
-<p id="balance">$0</p>
+<p id="balance">$0.00</p>
 </div>
 
 </div>
@@ -34,7 +34,7 @@
 
 <input type="text" id="title" placeholder="Title/Description" required>
 
-<input type="number" id="amount" placeholder="Amount" required>
+<input type="number" id="amount" placeholder="Amount" step="0.01" min="0" required>
 
 <input type="date" id="date" required>
 
@@ -58,7 +58,6 @@
 <h2>All Transactions</h2>
 
 <table>
-
 <thead>
 <tr>
 <th>Title</th>
@@ -70,10 +69,7 @@
 </tr>
 </thead>
 
-<tbody id="transactionTable">
-
-</tbody>
-
+<tbody id="transactionTable"></tbody>
 </table>
 
 <script src="script.js"></script>

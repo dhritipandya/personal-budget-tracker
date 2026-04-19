@@ -5,31 +5,65 @@ Course: Software Engineering
  
 # Project Description 
 
-This is a web-based personal budget tracker that allows users to record income and expenses, manage transactions, and view a financial summary. The application helps users track their finances efficiently by providing real-time updates and easy-to-use features.
+This is a web-based Personal Budget Tracker that allows users to record income and expenses, manage transactions, and view a financial summary. The application provides real-time updates, helping users track and understand their financial activity efficiently.
 
-# Features (Week 3 – Full CRUD Functionality)
+# Features (Week 4 – Final Implementation)
+
+Core Features
 
 -Add transactions (income or expense) with title, amount, date, category, and type
 -View transactions in a dynamic table
 -Edit existing transactions
 -Delete transactions with confirmation
 -Automatic calculation and display of total income, total expenses, and net balance
-Validation to ensure required fields are completed and amount is numeric (supports decimal values)
+-Input validation (required fields + decimal support)
+
+# Data Management
+
+1. Filter transactions by:
+Category
+Type (Income/Expense)
+2. Sort transactions by:
+Date (Ascending/Descending)
+
+# Advanced Features
+
+-Spending analytics using a pie chart (Chart.js)
+-Visual overspending alert when expenses exceed income
+-Export data:
+Download as CSV file
+Download as PDF report
 
 # Technologies Used
 
--HTML
--CSS
--JavaScript
+-HTML5 – Structure
+-CSS– Styling and layout
+-JavaScript (Vanilla JS) – Application logic and dynamic updates
+⚠️ Note: Data is stored using a JavaScript array (in-memory), so it resets when the page is refreshed. Backend/database integration was planned but not implemented due to time constraints.
+
+# Development Progress
 
 # Week 2 Progress
 
--Implemented full CRUD functionality (Create, Read, Update, Delete)
--Added edit feature to modify transaction details
+-Implemented transaction form with validation
+-Stored transactions in JavaScript array
+-Added real-time financial summary updates
+-Displayed transactions in dynamic table
+
+# Week 3 Progress
+
+-Implemented full CRUD functionality
+-Added edit and delete features
 -Added delete feature with confirmation prompt
--Ensured dynamic updates of the transaction table and financial summary after every operation
--Improved input handling by allowing decimal values for realistic financial tracking
--Organized JavaScript functions for better structure and maintainability
+-Ensured dynamic UI updates after operations
+
+# Week 4 Progress
+
+-Added filtering and sorting features
+-Integrated spending analytics (pie chart)
+-Implemented CSV and PDF export
+-Added overspending alert
+-Improved UI and overall user experience
 
 # How to Run
 
@@ -38,9 +72,20 @@ Validation to ensure required fields are completed and amount is numeric (suppor
 3. Use the form to add, edit, or delete transactions.
 4. View the updated financial summary on the dashboard.
 
-# Next Steps (Week 4) 
+#Screenshots
 
--Implement filtering by category and transaction type
--Add sorting by date and amount
--Enhance UI for better user experience
--(Optional) Add charts or analytics for visualizing spending patterns
+(already uploaded)
+
+-Dashboard view
+-Transaction form
+-Transactions table
+-Filtering and sorting
+-Chart visualization
+-Overspending alert
+
+# Known Limitations
+-No backend or database (data is not persistent)
+-Data resets on page refresh
+
+# Author
+Dhriti Pandya

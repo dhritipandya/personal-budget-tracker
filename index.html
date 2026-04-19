@@ -1,78 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Personal Budget Tracker</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
 <body>
 
-<h1>Dashboard</h1>
+<div class="dashboard-container">
+    <header>
+        <h1>Dashboard</h1>
+    </header>
 
-<div class="summary">
+    <div class="grid-layout">
+        <div class="column-left">
+            <section class="card summary-card">
+                <h2>Financial Summary</h2>
+                <div class="summary-item">
+                    <div class="icon income-icon">📈</div>
+                    <div>
+                        <p>Total Income</p>
+                        <h3 id="income" class="text-income">$0.00</h3>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="icon expense-icon">📉</div>
+                    <div>
+                        <p>Total Expenses</p>
+                        <h3 id="expense" class="text-expense">-$0.00</h3>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="icon balance-icon">💳</div>
+                    <div>
+                        <p>Net Balance</p>
+                        <p id="warning" class="warning-text"></p>
+                        <h3 id="balance" class="text-balance">$0.00</h3>
+                    </div>
+                </div>
+            </section>
 
-<div class="card income">
-<h3>Total Income</h3>
-<p id="income">$0.00</p>
+            <section class="card chart-card">
+                <div class="card-header">
+                    <h2>Spending Analytics</h2>
+                    <span class="badge">Advanced Feature</span>
+                </div>
+                <p class="chart-subtitle">Spending by Category</p>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </section>
+        </div>
+
+        <div class="column-right">
+            <section class="card form-card">
+                <h2>Quick Add Transaction</h2>
+                <form id="transactionForm">
+                    <div class="form-row">
+                        <div class="input-group flex-2">
+                            <label>Title/Description</label>
+                            <input type="text" id="title" placeholder="e.g. Salary or Rent" required>
+                        </div>
+                        <div class="input-group flex-1">
+                            <label>Amount (+/-)</label>
+                            <input type="number" id="amount" step="0.01" placeholder="$0.00" required>
+                        </div>
+                        <div class="input-group flex-1">
+                            <label>Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+                    <div class="form-row align-end">
+                        <div class="input-group flex-1">
+                            <label>Category</label>
+                            <select id="category">
+                                <option>Food</option>
+                                <option>Bills</option>
+                                <option>Entertainment</option>
+                                <option>Rent</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group flex-1 radio-section">
+                            <label>Type</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="type" value="Income" checked> Income</label>
+                                <label><input type="radio" name="type" value="Expense"> Expense</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Add Transaction</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card table-card">
+                <div class="table-header-row">
+                    <h2>All Transactions</h2>
+                    <div class="export-buttons">
+                        <span class="badge">Advanced Feature</span>
+                        <button type="button" onclick="downloadCSV()" class="btn-outline">CSV</button>
+                        <button type="button" onclick="downloadPDF()" class="btn-outline">PDF</button>
+                    </div>
+                </div>
+                
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label>Filter by Category</label>
+                        <select id="filterCategory">
+                            <option value="All">All</option>
+                            <option>Food</option>
+                            <option>Bills</option>
+                            <option>Entertainment</option>
+                            <option>Rent</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Filter by Type</label>
+                        <select id="filterType">
+                            <option value="All">All</option>
+                            <option value="Income">Income</option>
+                            <option value="Expense">Expense</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort by Date</label>
+                        <select id="sortByDate">
+                            <option value="desc">Desc</option>
+                            <option value="asc">Asc</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionTable"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
-
-<div class="card expense">
-<h3>Total Expenses</h3>
-<p id="expense">$0.00</p>
-</div>
-
-<div class="card balance">
-<h3>Net Balance</h3>
-<p id="balance">$0.00</p>
-</div>
-
-</div>
-
-<h2>Quick Add Transaction</h2>
-
-<form id="transactionForm">
-
-<input type="text" id="title" placeholder="Title/Description" required>
-
-<input type="number" id="amount" placeholder="Amount" step="0.01" min="0" required>
-
-<input type="date" id="date" required>
-
-<select id="category">
-<option>Food</option>
-<option>Bills</option>
-<option>Entertainment</option>
-<option>Shopping</option>
-<option>Other</option>
-</select>
-
-<div class="radio-group">
-<label><input type="radio" name="type" value="Income" checked> Income</label>
-<label><input type="radio" name="type" value="Expense"> Expense</label>
-</div>
-
-<button type="submit">Add Transaction</button>
-
-</form>
-
-<h2>All Transactions</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Amount</th>
-<th>Date</th>
-<th>Category</th>
-<th>Type</th>
-<th>Actions</th>
-</tr>
-</thead>
-
-<tbody id="transactionTable"></tbody>
-</table>
 
 <script src="script.js"></script>
-
 </body>
 </html>

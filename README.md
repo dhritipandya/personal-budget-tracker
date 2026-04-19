@@ -39,7 +39,7 @@ Download as PDF report
 -HTML5 – Structure
 -CSS– Styling and layout
 -JavaScript (Vanilla JS) – Application logic and dynamic updates
-⚠️ Note: Data is stored using a JavaScript array (in-memory), so it resets when the page is refreshed. Backend/database integration was planned but not implemented due to time constraints.
+Note: Data is stored using a JavaScript array (in-memory), so it resets when the page is refreshed. Backend/database integration was planned but not implemented due to time constraints.
 
 # Development Progress
 
@@ -72,7 +72,7 @@ Download as PDF report
 3. Use the form to add, edit, or delete transactions.
 4. View the updated financial summary on the dashboard.
 
-#Screenshots
+# Screenshots
 
 (already uploaded)
 

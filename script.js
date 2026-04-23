@@ -15,6 +15,9 @@ form.addEventListener("submit", function(e){
 
     transactions.push({title, amount, date, category, type});
 
+    // ✅ LOG ADDED
+    console.log("Transaction added:", {title, amount, date, category, type});
+
     display();
     form.reset();
 });
@@ -68,6 +71,12 @@ function display(){
     document.getElementById("expense").innerText = "-$" + expenseTotal.toFixed(2);
     document.getElementById("balance").innerText = "$" + (incomeTotal - expenseTotal).toFixed(2);
 
+    // ✅ LOGS ADDED
+    console.log("Display updated");
+    console.log("Income:", incomeTotal);
+    console.log("Expense:", expenseTotal);
+    console.log("Balance:", incomeTotal - expenseTotal);
+
     /* =========================
        🚨 OVERSPENDING ALERT
     ========================= */
@@ -88,12 +97,18 @@ function display(){
 
 // DELETE
 function del(i){
+    // ✅ LOG ADDED
+    console.log("Deleting transaction:", transactions[i]);
+
     transactions.splice(i,1);
     display();
 }
 
 // EDIT
 function edit(i){
+    // ✅ LOG ADDED
+    console.log("Editing transaction:", transactions[i]);
+
     let t = transactions[i];
 
     document.getElementById("title").value = t.title;
@@ -158,6 +173,9 @@ function downloadCSV(){
         return;
     }
 
+    // ✅ LOG ADDED
+    console.log("CSV download triggered");
+
     let csv = "Title,Amount,Date,Category,Type\n";
 
     transactions.forEach(t => {
@@ -184,6 +202,9 @@ function downloadPDF(){
         alert("No data to export");
         return;
     }
+
+    // ✅ LOG ADDED
+    console.log("PDF download triggered");
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();

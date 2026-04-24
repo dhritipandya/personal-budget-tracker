@@ -1,91 +1,87 @@
 # Personal Budget Tracker
 
-Student: Dhriti Pandya
-Course: Software Engineering
- 
-# Project Description 
+**Student:** Dhriti Pandya  
+**Course:** Software Engineering  
 
-This is a web-based Personal Budget Tracker that allows users to record income and expenses, manage transactions, and view a financial summary. The application provides real-time updates, helping users track and understand their financial activity efficiently.
+---
 
-# Features (Week 4 – Final Implementation)
+## 📌 Project Description
+The Personal Budget Tracker is a web-based application that enables users to manage their finances by recording income and expenses. It provides real-time updates, helping users monitor spending patterns and maintain financial awareness through an interactive dashboard.
 
-Core Features
+---
 
--Add transactions (income or expense) with title, amount, date, category, and type
--View transactions in a dynamic table
--Edit existing transactions
--Delete transactions with confirmation
--Automatic calculation and display of total income, total expenses, and net balance
--Input validation (required fields + decimal support)
+## 🚀 Features
 
-# Data Management
+### 🔹 Core Features
+- Add transactions (income or expense) with title, amount, date, category, and type  
+- View transactions in a dynamic table  
+- Edit existing transactions  
+- Delete transactions with confirmation  
+- Automatic calculation of:
+  - Total Income  
+  - Total Expenses  
+  - Net Balance  
+- Input validation (required fields and numeric values)
 
-1. Filter transactions by:
-Category
-Type (Income/Expense)
-2. Sort transactions by:
-Date (Ascending/Descending)
+---
 
-# Advanced Features
+### 🔹 Data Management
+- Filter transactions by:
+  - Category  
+  - Type (Income / Expense)  
+- Sort transactions by:
+  - Date (Ascending / Descending)
 
--Spending analytics using a pie chart (Chart.js)
--Visual overspending alert when expenses exceed income
--Export data:
-Download as CSV file
-Download as PDF report
+---
 
-# Technologies Used
+### 🔹 Advanced Features
+- 📊 Spending analytics using pie chart (Chart.js)  
+- ⚠️ Overspending alert when expenses exceed income  
+- 📁 Export functionality:
+  - Download as CSV file  
+  - Download as PDF report  
 
--HTML5 – Structure
--CSS– Styling and layout
--JavaScript (Vanilla JS) – Application logic and dynamic updates
-Note: Data is stored using a JavaScript array (in-memory), so it resets when the page is refreshed. Backend/database integration was planned but not implemented due to time constraints.
+---
 
-# Development Progress
+## 🛠 Technologies Used
+- **HTML5** – Structure  
+- **CSS3** – Styling and layout  
+- **JavaScript (Vanilla JS)** – Application logic and dynamic updates  
+- **Chart.js** – Data visualization  
+- **jsPDF** – PDF export  
 
-# Week 2 Progress
+---
 
--Implemented transaction form with validation
--Stored transactions in JavaScript array
--Added real-time financial summary updates
--Displayed transactions in dynamic table
+## ⚙️ How to Run
+1. Clone or download this repository  
+2. Open `index.html` in any web browser  
+3. Use the form to add, edit, or delete transactions  
+4. View real-time updates in the dashboard  
 
-# Week 3 Progress
+---
 
--Implemented full CRUD functionality
--Added edit and delete features
--Added delete feature with confirmation prompt
--Ensured dynamic UI updates after operations
+## 📸 Screenshots
+- Dashboard view  
+- Transaction form  
+- Transactions table  
+- Filtering and sorting  
+- Chart visualization  
+- Overspending alert  
 
-# Week 4 Progress
+*(Screenshots are included in the repository folder)*
 
--Added filtering and sorting features
--Integrated spending analytics (pie chart)
--Implemented CSV and PDF export
--Added overspending alert
--Improved UI and overall user experience
+---
 
-# How to Run
+## ⚠️ Known Limitations
+- No backend or database integration  
+- Data is stored in-memory and resets on page refresh  
 
-1. Clone or download the repository.
-2. Open index.html in a web browser.
-3. Use the form to add, edit, or delete transactions.
-4. View the updated financial summary on the dashboard.
+---
 
-# Screenshots
+## 🧪 Testing
+Test cases were executed manually through the browser interface. Console logs were used to verify operations such as adding, editing, deleting transactions, and updating the financial summary in real time. Integration testing ensured that all components (form, table, and summary) work together correctly.
 
-(already uploaded)
+---
 
--Dashboard view
--Transaction form
--Transactions table
--Filtering and sorting
--Chart visualization
--Overspending alert
-
-# Known Limitations
--No backend or database (data is not persistent)
--Data resets on page refresh
-
-# Author
+## 👩‍💻 Author
 Dhriti Pandya
